@@ -8,4 +8,5 @@ services:
       - 8000:8000
     image: app:django
     container_name: django_container
+
     command: python djchat/manage.py runserver 0.0.0.0:8000

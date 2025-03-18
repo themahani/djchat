@@ -42,8 +42,11 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Local apps
     "account",
     "server",
+    # Third-party apps
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
@@ -130,3 +133,17 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "account.Account"
+
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "DjChat API",
+    "DESCRIPTION": "API for DjChat",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": True,
+    "SWAGGER_UI_SETTINGS": {
+        "deepLinking": True,
+    },
+}
